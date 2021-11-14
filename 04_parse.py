@@ -42,6 +42,8 @@ def main():
             continue
         if '!' in s:
             continue
+        if 'beautifully' in s:
+            continue
 
         tree = make_tree(s)
         trees.append(tree)
