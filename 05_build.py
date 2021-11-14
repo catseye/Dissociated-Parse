@@ -25,9 +25,15 @@ def enter(map, tree):
     if isinstance(tree, str):
         return
     elif isinstance(tree, list):
-        tag = tree[0]
-        assert isinstance(tag, str)
-        map.setdefault(tag, []).append(tree)
+
+        # key each tree by its part of speech plus the first word (only) of its content.
+        words = []
+        for child in tree:
+            if isinstance(child, str):
+                words.append(child)
+        key = '-'.join(words[:2])
+
+        map.setdefault(key, []).append(tree)
         for child in tree[1:]:
             enter(map, child)
 
