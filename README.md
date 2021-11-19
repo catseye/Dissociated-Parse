@@ -18,12 +18,17 @@ of words like usual, but on a forest of parse trees.  I call this variation
 
 ## To run
 
-You'll need Python 3 (I used the version that ships with Ubuntu 20.04,
-which is Python 3.8.10) and the `link-parser` executable installed.
+To replicate what's been generated here, you'll need to have installed:
 
-Sources for `link-parser` can be found on GitHub:
-[opencog/link-grammar](https://github.com/opencog/link-grammar).  I built
-it from source.  YMMV.
+*   Python 3.  (I used the version that ships with Ubuntu 20.04,
+    which is Python 3.8.10.)
+*   The `link-parser` executable.  Sources can be found on GitHub:
+    [opencog/link-grammar](https://github.com/opencog/link-grammar).
+    I built it from source.  YMMV.
+*   `t-rext`.  The latest version runs only under Python 2.7.  I ran
+    it from a Docker container: https://hub.docker.com/r/catseye/t-rext
+*   `pandoc`.  This was just to make the HTML version from the generated
+    Markdown.  I installed it using `apt`.
 
 After you have the executables, you can:
 
@@ -39,3 +44,6 @@ After you have the executables, you can:
     ./05_build.py
     ./06_traverse.py 'Give your Novel a Title Here' >out.md
     wc -w out.md
+    t-rext out.md > 'Your Novel.md'
+    pandoc --from=markdown --to=html5 <'Your Novel.md' >'Your Novel.html'
+    firefox 'Your Novel.html'
