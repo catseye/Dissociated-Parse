@@ -37,4 +37,5 @@ After you have the executables, you can:
     ./03_sentencify.py
     ./04_parse.py                # this one will take a while
     ./05_build.py
-    ./06_traverse.py
+    ./06_traverse.py 'Give your Novel a Title Here' >out.md
+    wc -w out.md

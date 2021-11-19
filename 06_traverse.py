@@ -8,13 +8,15 @@ import random
 
 
 def render(f, productions, tree):
-    render_r(f, productions, tree)
+    segments = []
+    render_r(segments, productions, tree)
+    segments[0] = segments[0].title()
+    f.write(' '.join(segments))
     f.write('.\n\n')
 
-def render_r(f, productions, tree):
+def render_r(segments, productions, tree):
     if isinstance(tree, str):
-        f.write(tree)
-        f.write(' ')
+        segments.append(tree)
     elif isinstance(tree, list):
 
         # key each tree by its part of speech plus the first word (only) of its content.
@@ -30,17 +32,19 @@ def render_r(f, productions, tree):
         tree = random.choice(productions[key])
 
         for child in tree[1:]:
-            render_r(f, productions, child)
+            render_r(segments, productions, child)
 
 
 def main():
+    title = sys.argv[1]
     map = {}
 
     with open('data/productions.json', 'r') as f:
         productions = json.loads(f.read())
 
+    sys.stdout.write('# {}\n\n'.format(title))
     for c in range(1, 37):
-        sys.stdout.write('# Chapter {}\n\n'.format(c))
+        sys.stdout.write('## Chapter {}\n\n'.format(c))
         for i in range(100):
             tree = random.choice(productions['S'])
             render(sys.stdout, productions, tree)
