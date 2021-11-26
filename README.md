@@ -44,6 +44,7 @@ After you have the executables, you can:
     ./05_build.py
     ./06_traverse.py 'Give your Novel a Title Here' >out.md
     wc -w out.md
-    t-rext out.md > 'Your Novel.md'
+    t-rext out.md > out2.md
+    python3 cleanup.py out2.md > 'Your Novel.md'
     pandoc --from=markdown --to=html5 <'Your Novel.md' >'Your Novel.html'
     firefox 'Your Novel.html'
