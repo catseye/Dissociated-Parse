@@ -3,8 +3,6 @@ Dissociated Parse
 
 A submission for NaNoGenMo 2021 ([#62][]).
 
-[#62]: https://github.com/NaNoGenMo/2021/issues/62
-
 It's well known that Markov chains don't understand grammar; any sequences
 in the output that might look grammatical are only there because
 grammatical-looking sequences are statistically likely.
@@ -15,6 +13,12 @@ some of the syntactic structure of the original text.
 Turns out we can run the Dissociated Press algorithm, not just on a list
 of words like usual, but on a forest of parse trees.  I call this variation
 **Dissociated Parse**.
+
+For more information on this technique, see Issue [#62][]
+in the NaNoGenMo 2021 repository on GitHub.
+
+A 50,277-word novel generated using this technique can be found here:
+[The Lion, the Witches, and the Weird Road](generated/The%20Lion,%20the%20Witches,%20and%20the%20Weird%20Road.md).
 
 ## To run
 
@@ -48,3 +52,5 @@ After you have the executables, you can:
     python3 cleanup.py out2.md > 'Your Novel.md'
     pandoc --from=markdown --to=html5 <'Your Novel.md' >'Your Novel.html'
     firefox 'Your Novel.html'
+
+[#62]: https://github.com/NaNoGenMo/2021/issues/62
