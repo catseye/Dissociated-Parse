@@ -64,7 +64,7 @@ The usual algorithm involves analyzing the source text and building
 a weighted transition table, then finding a random (but likely) path
 through this table.
 
-The probably less well-known algorithm called Dissociated Press goes
+The probably less well-known algorithm called [Dissociated Press][] goes
 like this:
 
 1. load all the words into a list in memory
@@ -85,7 +85,7 @@ is also an upside, in the sense that variations on the algorithm can
 exploit structure in the text which would not be retained in
 the transition table.
 
-Dissociated Parse adapts this to work recursively on parse trees.
+Now, Dissociated Parse adapts this to work recursively on parse trees.
 Consider a parse tree to consist of a word, a part-of-speech tag,
 and zero or more child trees.  Here is a sketch of the algorithm:
 
@@ -103,4 +103,5 @@ to obtain a third model where the generation can switch between discrete states
 (like "in narration" and "in dialogue").
 
 [#62]: https://github.com/NaNoGenMo/2021/issues/62
+[Dissociated Press]: https://en.wikipedia.org/wiki/Dissociated_press
 [Anne of Green Garbles]: https://github.com/catseye/NaNoGenMo-Entries-2019/tree/master/Anne%20of%20Green%20Garbles#readme
